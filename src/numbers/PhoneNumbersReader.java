@@ -14,10 +14,7 @@ public class PhoneNumbersReader {
     }
 
     public static void phoneNumbersPrinter() {
-        Pattern pattern = Pattern.compile(
-                "([(][0123456789]{3}[)][ ][0123456789]{3}[\\-][0123456789]{4})" +
-                        "|" +
-                        "([0123456789]{3}[\\-][0123456789]{3}[\\-][0123456789]{4})");
+        Pattern pattern = Pattern.compile("\\d{3}-\\d{3}-\\d{4}|\\(\\d{3}\\)\\s\\d{3}-\\d{4}");
 
         try (InputStream fis = new FileInputStream("files/phoneNumbers.txt")) {
             Scanner scanner = new Scanner(fis);
